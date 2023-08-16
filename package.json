@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@types/puppeteer": "^7.0.4",
+    "puppeteer": "^21.0.3"
+  }
+}
