@@ -22,6 +22,7 @@ function Schedule({ onConfirm }: Props): JSX.Element {
   const [arrivalStation, setArrivalStation] = useState<Station>(STATION.수서);
   const [date, setDate] = useState<Date>();
   const [time, setTime] = useState<string>(EVEN_TIMES[0]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const stations = Object.entries(STATION);
 
@@ -37,6 +38,7 @@ function Schedule({ onConfirm }: Props): JSX.Element {
     }
 
     onConfirm({ departureStation, arrivalStation, date: formatDateToString(date), time });
+    setLoading(true);
   };
 
   return (
@@ -80,6 +82,7 @@ function Schedule({ onConfirm }: Props): JSX.Element {
       <div>
         <button onClick={() => confirm()}>확인</button>
       </div>
+      {loading && <h1>로딩 중...</h1>}
     </div>
   );
 }
