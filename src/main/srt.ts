@@ -82,6 +82,7 @@ export async function getTrains(schedule: Schedule) {
 
 export async function refetchTrains() {
   await page.reload();
+  await page.waitForNetworkIdle();
 
   while (true) {
     try {
