@@ -86,7 +86,7 @@ export async function refetchTrains() {
 
   while (true) {
     try {
-      await page.waitForSelector('table tbody tr', { timeout: 3000 });
+      await page.waitForSelector('.etk-seat table tbody tr', { timeout: 3000 });
       break;
     } catch {
       await page.locator('.inquery_btn').setTimeout(60000).click();
