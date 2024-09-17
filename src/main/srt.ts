@@ -8,7 +8,7 @@ export async function init() {
   if (browser) {
     browser.close();
   }
-  browser = await puppeteer.launch();
+  browser = await puppeteer.launch({ headless: false });
   page = await browser.newPage();
 
   await page.setViewport({ width: 1080, height: 1024 });
@@ -57,7 +57,7 @@ export async function fetchTrains(schedule: Schedule) {
   await page.select('#dptTm', time);
 
   await page.locator('.inquery_btn').click();
-  await page.waitForNavigation();
+  await page.waitForNavigation({ timeout: 1000000 });
 }
 
 export async function getTrains(schedule: Schedule) {
